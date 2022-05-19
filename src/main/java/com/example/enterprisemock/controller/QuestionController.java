@@ -27,4 +27,9 @@ public class QuestionController {
     ) {
         return questionService.updateQuestion(questionId, input);
     }
+
+    @DeleteMapping("/questions/{questionId}")
+    public void deleteQuestion(@PathVariable int questionId) {
+        questionService.deleteQuestion(questionId);
+    }
 }

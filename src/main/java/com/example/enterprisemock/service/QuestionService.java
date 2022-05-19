@@ -37,4 +37,9 @@ public class QuestionService {
         input.setId(questionId);
         return questionRepo.save(input);
     }
+
+    public void deleteQuestion(int questionId) {
+        Question question = questionRepo.findById(questionId).orElseThrow(() -> new RuntimeException("abc"));
+        questionRepo.delete(question);
+    }
 }
