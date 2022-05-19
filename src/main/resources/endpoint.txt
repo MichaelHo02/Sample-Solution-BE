@@ -1,0 +1,2 @@
+http://127.0.0.1:8080/quizzes?search={key}&isAscending={boolean}&page={int}&limit={int}
+http://127.0.0.1:8080/quizzes?search=05&isAscending=true&page=0&limit=5
