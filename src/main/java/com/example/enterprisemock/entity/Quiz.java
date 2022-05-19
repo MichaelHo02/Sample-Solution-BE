@@ -21,7 +21,7 @@ public class Quiz {
     @Column(name = "date_of_creation")
     Date dateOfCreation;
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "id")
+    @OneToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE}, mappedBy = "id")
     List<Question> questions;
 
     public int getId() {

@@ -28,15 +28,15 @@ public class QuizController {
             @RequestParam(value = "limit", defaultValue = "4", required = false) int limit,
             @RequestHeader(name = "basics", defaultValue = "", required = false) String basics
     ) {
-        List<String> basicsList = List.of(basics.split(":"));
-        User user = userService.getUser(basicsList.get(0));
-        if (user.getName().equals(basicsList.get(0)) && user.getPassword().equals(basicsList.get(1))) {
+//        List<String> basicsList = List.of(basics.split(":"));
+//        User user = userService.getUser(basicsList.get(0));
+//        if (user.getName().equals(basicsList.get(0)) && user.getPassword().equals(basicsList.get(1))) {
             Pageable pageable = isAscending ?
                     PageRequest.of(page, limit, Sort.by("name", "date_of_creation").ascending()) :
                     PageRequest.of(page, limit, Sort.by("name", "date_of_creation").descending());
 
             return quizService.getQuizzes(search, pageable);
-        }
-        return null;
+//        }
+//        return null;
     }
 }

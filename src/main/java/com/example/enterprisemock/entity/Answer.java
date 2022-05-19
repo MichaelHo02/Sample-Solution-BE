@@ -18,7 +18,7 @@ public class Answer {
     @Column(name = "is_correct_answer")
     private boolean isCorrectAnswer;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     @JsonBackReference
     private Question question;
 

@@ -24,15 +24,17 @@ public class QuestionService {
     }
 
     public Question updateQuestion(int questionId, Question input) {
-        Question question1 = questionRepo
-                .findById(questionId).orElseThrow(
-                        () -> new RuntimeException("Cannot find question")
-                );
-        if (!question1.getContent().equals(input.getContent())) {
-            question1.setContent(input.getContent());
-        }
-        question1.setAnswers(input.getAnswers());
-        questionRepo.saveAndFlush(question1);
-        return question1;
+//        Question question1 = questionRepo
+//                .findById(questionId).orElseThrow(
+//                        () -> new RuntimeException("Cannot find question")
+//                );
+//        if (!question1.getContent().equals(input.getContent())) {
+//            question1.setContent(input.getContent());
+//        }
+//        question1.setAnswers(input.getAnswers());
+//        return question1;
+
+        input.setId(questionId);
+        return questionRepo.save(input);
     }
 }

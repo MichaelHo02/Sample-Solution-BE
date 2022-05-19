@@ -16,7 +16,7 @@ public class Question {
     @Column(name = "content")
     String content;
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "id")
+    @OneToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE}, mappedBy = "question")
     @JsonManagedReference
     List<Answer> answers;
 
